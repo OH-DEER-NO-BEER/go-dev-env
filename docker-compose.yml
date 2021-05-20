@@ -1,0 +1,14 @@
+version: '3'
+services:
+  goapp:
+    environment:
+      - "GOPATH=/go"
+    build:
+      context: ./docker
+      args:
+        - HOME=${HOME}
+    ports:
+      - "8080:8080"
+    volumes:
+      - "${HOME}/go/src:/go/src/goapp"
+    tty: true
